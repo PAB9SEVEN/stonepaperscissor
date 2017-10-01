@@ -1,0 +1,148 @@
+<html><head><title>
+    </title>
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/index.css">
+<script src="/js/jquery.js"></script>
+
+ 
+    
+    
+    </head>
+    <body><div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link active" href="#" onclick="window.location.reload()">Refresh<span class="sr-only">(current)</span></a>
+            </li>
+            
+          </ul>
+        </nav>
+        <h3 class="text-muted">Game</h3>
+      </div>
+
+      <div class="jumbotron">
+        <h3 class="display-3">Stone-Paper-Scissor</h3>
+          <br><br><br>
+                  <h3>Do you want to play?</h3><br><input type="text" id="gametext" ><br><br>
+                  <a class="btn btn-lg btn-success" href="#" id="butt" role="button" onClick="myfun()">Submit</a>
+      </div>
+        <div class="jumbotron" id="display" style="display:none">
+        <h3>Choose a number between 1-2-3</h3>
+        <ol>
+            <li>Stone</li>
+            <li>Paper</li>
+            <li>Scissor</li>
+            </ol>
+             <h3>Your Choice?</h3><br><input type="number" id="choice" min=1 max=3 ><br><br>
+                  <a class="btn btn-lg btn-success" href="#" id="butt" role="button" onClick="confirm()">Confirm</a>
+            <p id="compresult"></p>
+            <p id="userresult"></p>
+            <p id="finalresult"></p>
+        </div>
+<script>
+var optional=document.getElementById('gametext');
+    var choice=document.getElementById("choice");
+    var y=choice.value;
+    
+
+function myfun(){
+  var x=optional.value;
+    if(x.toUpperCase()=="YES"){
+        document.getElementById("display").style.display="block";
+
+    }
+    //var x=Math.floor((Math.random())*3)+1;
+      //  alert(x);
+
+}
+    function confirm(){
+       var y=choice.value;
+        if(y>3 || y<1){
+            alert("Fill in the required credentials");
+          $('#choice').val('');
+         
+        }
+        else{
+            var comp=Math.floor((Math.random())*3)+1;
+       // alert(comp);
+         //   alert(y);
+            switch(comp){
+                case 1:
+                    $("#compresult").html("Computer-->Stone");
+                    if(y==1){
+                         $("#userresult").html("You-->Stone");
+                        $("#finalresult").html("Tie");
+                    }
+                    else if(y==2){
+                        $("#userresult").html("You-->Paper");
+                        $("#finalresult").html("Congrats..You win..");
+                        
+                    }
+                    else{
+                        $("#userresult").html("You-->Scissor");
+                        $("#finalresult").html("Computer wins");
+                    }
+                    break;
+                    
+                case 2:
+                    $("#compresult").html("Computer-->Paper");
+                   // $("#userresult").html(y);
+                    if(y==1){
+                        $("#userresult").html("You-->Stone");
+                        $("#finalresult").html("Computer wins!");
+                    }
+                    else if(y==2){
+                        $("#userresult").html("You-->Paper");
+                        $("#finalresult").html("Tie");
+                        
+                    }
+                    else{
+                        $("#userresult").html("You-->Scissor");
+                        $("#finalresult").html("Congrats..You win..");
+                    }
+                    
+                    break;
+                    
+                case 3:
+                    $("#compresult").html("Computer-->Scissor");
+//                    $("#userresult").html(y);
+                       if(y==1){
+                           $("#userresult").html("You-->Stone");
+                        $("#finalresult").html("Congrats..You win..");
+                    }
+                    else if(y==2){
+                        $("#userresult").html("You-->Paper");
+                        $("#finalresult").html("Computer wins!");
+                        
+                    }
+                    else{
+                        $("#userresult").html("You-->Scissor");
+                        $("#finalresult").html("Tie");
+                    }
+                    break;
+            }
+        
+        }
+        
+    }
+        
+</script>        
+      <div class="row-marketing" id="optional">
+        <div class="col-lg-12">
+          
+                  </div>
+
+    
+      </div>
+
+      <footer class="footer">
+        <p>&copy; game 2017</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+                  </body>
+                  
+   
+</html>
